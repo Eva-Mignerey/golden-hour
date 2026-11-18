@@ -4,6 +4,12 @@ export default defineNuxtConfig({
   typescript: {
     strict: true
   },
+  runtimeConfig: {
+    public: {
+      geocodingUrl: 'https://geocoding-api.open-meteo.com/v1',
+      forecastUrl: 'https://api.open-meteo.com/v1/forecast'
+    }
+  },
   css: [
     '@fontsource-variable/fraunces/full.css',
     '@fontsource-variable/fraunces/full-italic.css',

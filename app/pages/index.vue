@@ -1,18 +1,23 @@
 <template>
-  <section class="home" aria-labelledby="home-title">
-    <h1 id="home-title" class="home__title">
-      Quand sortir <em>photographier</em>&nbsp;?
-    </h1>
-    <p class="home__intro">
-      Heures dorées, heures bleues et qualité de la lumière, lieu par lieu, d'après les prévisions de couverture nuageuse.
-    </p>
+  <div class="home">
+    <section class="home__hero" aria-labelledby="home-title">
+      <h1 id="home-title" class="home__title">
+        Quand sortir <em>photographier</em>&nbsp;?
+      </h1>
+      <p class="home__intro">
+        Heures dorées, heures bleues et qualité de la lumière, lieu par lieu, d'après les prévisions de couverture nuageuse.
+      </p>
+    </section>
+
+    <SearchForm class="home__search" />
+
     <ul class="legend" aria-label="Légende de la bande du ciel">
       <li v-for="item in legend" :key="item.label">
         <span class="legend__swatch" :style="{ background: `var(--sky-${item.sky})` }" aria-hidden="true" />
         {{ item.label }}
       </li>
     </ul>
-  </section>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -22,8 +27,7 @@ const legend = [
   { sky: 'night', label: 'nuit' },
   { sky: 'blue', label: 'heure bleue' },
   { sky: 'gold', label: 'heure dorée' },
-  { sky: 'day', label: 'jour' },
-  { sky: 'overcast', label: 'ciel couvert' }
+  { sky: 'day', label: 'jour' }
 ] as const
 </script>
 
@@ -33,8 +37,14 @@ const legend = [
 .home {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 32px;
   max-width: 40rem;
+}
+
+.home__hero {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .home__title {

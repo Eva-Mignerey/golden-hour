@@ -1,0 +1,66 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: var(--tap);
+  padding: 0 18px;
+  border: 1.5px solid var(--c-ink);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--c-ink);
+  font-size: 0.9375rem;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--c-card);
+    color: var(--c-ink);
+  }
+
+  &:disabled {
+    cursor: progress;
+    opacity: 0.7;
+  }
+
+  &--primary {
+    border-color: var(--c-ink);
+    background: var(--c-ink);
+    color: var(--c-paper);
+
+    &:hover {
+      background: #3a302a;
+      color: var(--c-paper);
+    }
+  }
+
+  &--soft {
+    border-color: var(--c-line);
+
+    &:hover {
+      border-color: var(--c-ink);
+      background: transparent;
+    }
+  }
+
+  &--icon {
+    width: var(--tap);
+    padding: 0;
+  }
+}
+
+.link-btn {
+  min-height: var(--tap);
+  padding: 0 4px;
+  border: 0;
+  background: transparent;
+  color: var(--c-amber);
+  font-size: 0.875rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--c-amber-dark);
+  }
+}
