@@ -14,7 +14,11 @@
       :pending="forecastStatus === 'pending'"
       :error-kind="forecastError ? errorKind(forecastError) : null"
       @retry="refreshForecast()"
-    />
+    >
+      <template #actions>
+        <FavoriteToggle :place="place" />
+      </template>
+    </LocationView>
   </div>
 </template>
 

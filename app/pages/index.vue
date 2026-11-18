@@ -9,7 +9,12 @@
       </p>
     </section>
 
-    <SearchForm class="home__search" />
+    <div class="home__find">
+      <SearchForm />
+      <LocateButton />
+    </div>
+
+    <FavoriteList />
 
     <ul class="legend" aria-label="Légende de la bande du ciel">
       <li v-for="item in legend" :key="item.label">
@@ -39,6 +44,12 @@ const legend = [
   flex-direction: column;
   gap: 32px;
   max-width: 40rem;
+}
+
+.home__find {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .home__hero {

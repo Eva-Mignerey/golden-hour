@@ -8,6 +8,7 @@
       <NuxtLink to="/" class="wordmark">Golden Hour</NuxtLink>
       <p class="tagline">la météo des photographes</p>
     </header>
+    <p v-if="!online" class="offline" role="status">Vous êtes hors ligne : les prévisions affichées peuvent dater.</p>
     <main id="contenu" class="site-main" tabindex="-1">
       <slot />
     </main>
@@ -18,6 +19,8 @@
 </template>
 
 <script setup lang="ts">
+const online = useOnline()
+
 type SkyName = 'night' | 'blue' | 'gold' | 'day' | 'sunset' | 'dusk'
 
 interface Band {
@@ -80,6 +83,17 @@ const bands: Band[] = [
 .tagline {
   font-size: 0.8125rem;
   color: var(--c-sepia);
+}
+
+.offline {
+  width: calc(100% - var(--gutter) * 2);
+  max-width: calc(var(--max-width) - var(--gutter) * 2);
+  margin: 16px auto 0;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  background: var(--c-ink);
+  color: var(--c-paper);
+  font-size: 0.875rem;
 }
 
 .site-main {

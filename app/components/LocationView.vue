@@ -40,7 +40,8 @@
           </div>
           <div class="location__col location__col--wide">
             <DayTimes :sun="day.sun" :timezone="forecast.timezone" :best="day.best" />
-            <slot name="details" :day="day" :forecast="forecast" :selected="selected" />
+            <HourlyChart :slots="day.slots" :sun="day.sun" :timezone="forecast.timezone" />
+            <NextDays :days="forecast.days" :selected="selected" :timezone="forecast.timezone" @select="selectDay" />
           </div>
         </div>
       </div>
@@ -78,6 +79,14 @@ onBeforeUnmount(() => clearInterval(timer))
 const day = computed(() => props.forecast?.days[selected.value] ?? props.forecast?.days[0] ?? null)
 
 const isToday = computed(() => selected.value === 0)
+
+function selectDay(index: number): void {
+  selected.value = index
+  const date = props.forecast?.days[index]?.date
+  nextTick(() => {
+    if (date) document.getElementById(`tab-${date}`)?.focus()
+  })
+}
 
 const skyLabel = computed(() => {
   const d = day.value
