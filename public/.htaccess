@@ -1,0 +1,10 @@
+FallbackResource /golden-hour/200.html
+
+<IfModule mod_headers.c>
+  <FilesMatch "^(sw\.js|200\.html|404\.html|index\.html|manifest\.webmanifest)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  <If "%{REQUEST_URI} =~ m#/_nuxt/#">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </If>
+</IfModule>

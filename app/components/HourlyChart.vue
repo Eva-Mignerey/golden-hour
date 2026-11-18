@@ -58,7 +58,7 @@
       <li><span class="swatch swatch--blue" aria-hidden="true" />heure bleue</li>
     </ul>
 
-    <div v-show="showTable" :id="tableId" class="hourly__table-wrap">
+    <div v-show="showTable" :id="tableId" class="hourly__table-wrap" role="region" aria-label="Tableau heure par heure" tabindex="0">
       <table class="hourly__table">
         <caption class="sr-only">Prévisions heure par heure</caption>
         <thead>
