@@ -1,5 +1,13 @@
+const hashRouter = process.env.NUXT_HASH_ROUTER === '1'
+
 export default defineNuxtConfig({
   compatibilityDate: '2026-11-18',
+  ssr: !hashRouter,
+  router: {
+    options: {
+      hashMode: hashRouter
+    }
+  },
   devtools: { enabled: true },
   modules: ['@vite-pwa/nuxt'],
   typescript: {

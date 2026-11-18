@@ -18,6 +18,7 @@
     "vue-router": "^5.5.1"
   },
   "devDependencies": {
+    "@types/node": "^24.19.2",
     "@vite-pwa/nuxt": "^2.0.2",
     "sass": "^1.108.2",
     "typescript": "^6.0.3",
